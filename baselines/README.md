@@ -58,14 +58,14 @@ Run training:
 fairseq-train wmt20-zh-en_bpe32k_data-bin/ --arch transformer_vaswani_wmt_en_de_big --share-decoder-input-output-embed  \
 --optimizer adam --adam-betas '(0.9, 0.98)' --clip-norm 0.0 --lr 0.0005 --lr-scheduler inverse_sqrt --warmup-updates 4000 --warmup-init-lr 1e-07 \
 --dropout 0.1 --weight-decay 0.0 --criterion label_smoothed_cross_entropy --label-smoothing 0.1 --max-tokens 4096 --fp16 \
---save-dir <path-to-dir> --seed 8 --encoder-embed-dim 1024 --encoder-ffn-embed-dim 4096 --encoder-attention-heads 16 \
---decoder-embed-dim 1024  --decoder-ffn-embed-dim 4096 --decoder-attention-heads 16  --max-update 600000
+--save-dir <path-to-dir> --encoder-embed-dim 1024 --encoder-ffn-embed-dim 4096 --encoder-attention-heads 16 \
+--decoder-embed-dim 1024 --decoder-ffn-embed-dim 4096 --decoder-attention-heads 16  --max-update 600000 --seed 1
 
 # trans-base_wmt20-en-de
 fairseq-train wmt20-en-de_bpe32k_data-bin/ --arch transformer_wmt_en_de --share-all-embeddings \
---optimizer adam --adam-betas '(0.9, 0.98)' --clip-norm 0.0 --lr-scheduler inverse_sqrt --warmup-init-lr 1e-07 --warmup-updates 4000 \
---lr 0.0005 --stop-min-lr 1e-09 --criterion label_smoothed_cross_entropy --label-smoothing 0.1 --weight-decay 0.0 --max-tokens 4096 \
---save-dir <path-to-dir> --dropout 0.1 --max-source-positions 1024 --max-target-positions 1024 --fp16 --max-update 600000 --seed 1 --decoder-layers 6 --encoder-layers 6
+--optimizer adam --adam-betas '(0.9, 0.98)' --clip-norm 0.0 --lr 0.0005 --lr-scheduler inverse_sqrt --warmup-updates 4000 --warmup-init-lr 1e-07 \
+--dropout 0.1 --weight-decay 0.0 --stop-min-lr 1e-09 --criterion label_smoothed_cross_entropy --label-smoothing 0.1 --max-tokens 4096 --fp16 \
+--save-dir <path-to-dir> --max-source-positions 1024 --max-target-positions 1024 --max-update 600000 --decoder-layers 6 --encoder-layers 6 --seed 1
 ```
 ## Citation
 ```
